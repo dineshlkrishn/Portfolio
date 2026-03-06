@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Dinesh Muthukrishnan | Portfolio</title>
+<title>Dinesh Muthukrishnan</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-<script src="https://unpkg.com/framer-motion/dist/framer-motion.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
 <style>
 
 body{
-background:#F6F6F6;
-font-family:Inter, sans-serif;
-color:#1C1C1C;
-}
-
-.gold{
-color:#C89B3C;
+background:#f6f6f6;
+font-family:Arial, sans-serif;
+color:#1c1c1c;
 }
 
 </style>
@@ -35,34 +28,24 @@ color:#C89B3C;
 
 <div id="root"></div>
 
-<script type="text/babel">
+<script>
 
-const { motion } = window["framer-motion"]
+const e = React.createElement;
 
 function Navbar(){
 
-return(
+return e("div",
+{className:"bg-white shadow p-5 flex justify-between"},
 
-<nav className="fixed w-full bg-white shadow-sm z-50">
+e("h1",{className:"text-xl font-semibold"},"Dinesh Muthukrishnan"),
 
-<div className="max-w-7xl mx-auto flex justify-between items-center p-6">
+e("div",{className:"space-x-6 text-gray-600"},
 
-<h1 className="text-2xl font-semibold">
-Dinesh Muthukrishnan
-</h1>
+e("a",{href:"#about"},"About"),
+e("a",{href:"#skills"},"Skills"),
+e("a",{href:"#projects"},"Projects")
 
-<div className="space-x-8 text-gray-600">
-
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-
-</div>
-
-</div>
-
-</nav>
+)
 
 )
 
@@ -70,62 +53,29 @@ Dinesh Muthukrishnan
 
 function Hero(){
 
-return(
+return e("section",
+{className:"max-w-6xl mx-auto grid md:grid-cols-2 gap-10 pt-20 pb-20"},
 
-<section className="pt-32 pb-24 max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+e("div",null,
 
-<motion.div
-initial={{opacity:0,y:40}}
-animate={{opacity:1,y:0}}
-transition={{duration:0.8}}
->
+e("h2",{className:"text-gray-500"},"Software Developer"),
 
-<h2 className="text-gray-500 mb-2">
-Software Developer
-</h2>
+e("h1",{className:"text-4xl font-bold mt-2"},"Dinesh Muthukrishnan"),
 
-<h1 className="text-5xl font-bold mb-6">
+e("p",{className:"mt-4 text-gray-600"},
+"Building scalable MERN and cloud applications."),
 
-Dinesh Muthukrishnan
+e("button",
+{className:"mt-6 bg-yellow-600 text-white px-6 py-3 rounded"},
+"View Projects")
 
-</h1>
+),
 
-<p className="text-gray-600 mb-6">
-
-Building scalable web applications using MERN,
-AWS and modern cloud technologies.
-
-</p>
-
-<div className="space-x-4">
-
-<button className="bg-[#C89B3C] text-white px-6 py-3 rounded">
-
-View Projects
-
-</button>
-
-<button className="border px-6 py-3 rounded">
-
-Contact
-
-</button>
-
-</div>
-
-</motion.div>
-
-<motion.img
-
-whileHover={{scale:1.05}}
-
-src="profile.jpg"
-
-className="rounded-xl shadow-lg w-full"
-
-/>
-
-</section>
+e("img",
+{
+src:"profile.jpg",
+className:"rounded-xl shadow"
+})
 
 )
 
@@ -133,48 +83,27 @@ className="rounded-xl shadow-lg w-full"
 
 function About(){
 
-return(
+return e("section",
+{id:"about",className:"max-w-6xl mx-auto py-20 grid md:grid-cols-2 gap-10"},
 
-<section id="about" className="py-24 max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+e("div",null,
 
-<motion.div
+e("h2",{className:"text-3xl font-semibold"},"About Me"),
 
-whileInView={{opacity:1,scale:1}}
-initial={{opacity:0,scale:0.9}}
-transition={{duration:0.6}}
+e("p",{className:"mt-4 text-gray-600"},
+"Software Developer with 2+ years MERN experience."),
 
->
+e("ul",{className:"mt-4 space-y-2"},
 
-<h2 className="text-4xl mb-6">
+e("li",null,"✔ REST APIs"),
+e("li",null,"✔ Cloud Deployment"),
+e("li",null,"✔ Performance Optimization")
 
-About Me
+)
 
-</h2>
+),
 
-<p className="text-gray-600 mb-6">
-
-Software Developer with 2+ years experience building scalable
-applications using the MERN stack.
-
-</p>
-
-<ul className="space-y-3">
-
-<li>✔ REST APIs</li>
-<li>✔ Cloud Deployment</li>
-<li>✔ Performance Optimization</li>
-<li>✔ UI Responsiveness</li>
-
-</ul>
-
-</motion.div>
-
-<img
-src="about.jpg"
-className="rounded-xl shadow"
-/>
-
-</section>
+e("img",{src:"about.jpg",className:"rounded-xl shadow"})
 
 )
 
@@ -182,53 +111,30 @@ className="rounded-xl shadow"
 
 function Skills(){
 
-const skills=[
+return e("section",
+{id:"skills",className:"max-w-6xl mx-auto py-20"},
 
-{title:"Frontend",desc:"React, Redux, Tailwind, MUI"},
-{title:"Backend",desc:"Node, Express, REST APIs"},
-{title:"Database",desc:"MongoDB, MySQL"}
+e("h2",{className:"text-3xl font-semibold mb-10"},"Skills"),
 
-]
+e("div",{className:"grid md:grid-cols-3 gap-6"},
 
-return(
+skillCard("Frontend","React, Redux, Tailwind"),
+skillCard("Backend","Node, Express"),
+skillCard("Database","MongoDB, MySQL")
 
-<section id="skills" className="py-24 max-w-7xl mx-auto">
+)
 
-<h2 className="text-4xl mb-12">
+)
 
-Skills
+}
 
-</h2>
+function skillCard(title,desc){
 
-<div className="grid md:grid-cols-3 gap-8">
+return e("div",
+{className:"bg-white p-6 rounded shadow hover:scale-105 transition"},
 
-{skills.map((s,i)=> (
-
-<motion.div
-
-key={i}
-
-whileHover={{scale:1.08}}
-
-className="bg-white p-8 rounded-xl shadow transition"
-
->
-
-<h3 className="text-xl font-semibold mb-2">
-{s.title}
-</h3>
-
-<p className="text-gray-500">
-{s.desc}
-</p>
-
-</motion.div>
-
-))}
-
-</div>
-
-</section>
+e("h3",{className:"font-semibold text-lg"},title),
+e("p",{className:"text-gray-600 mt-2"},desc)
 
 )
 
@@ -236,63 +142,36 @@ className="bg-white p-8 rounded-xl shadow transition"
 
 function Projects(){
 
-const projects=[
+return e("section",
+{id:"projects",className:"max-w-6xl mx-auto py-20"},
 
-{title:"EROCRM",desc:"CRM Dashboard System"},
-{title:"DOXOR",desc:"Healthcare Support System"},
-{title:"GN1918",desc:"Order Management System"}
+e("h2",{className:"text-3xl font-semibold mb-10"},"Projects"),
 
-]
+e("div",{className:"grid md:grid-cols-3 gap-6"},
 
-return(
+projectCard("EROCRM","CRM Dashboard"),
+projectCard("DOXOR","Healthcare System"),
+projectCard("GN1918","Order Management")
 
-<section id="projects" className="py-24 max-w-7xl mx-auto">
+)
 
-<h2 className="text-4xl mb-12">
+)
 
-Projects
+}
 
-</h2>
+function projectCard(title,desc){
 
-<div className="grid md:grid-cols-3 gap-8">
+return e("div",
+{className:"bg-white rounded shadow hover:scale-105 transition overflow-hidden"},
 
-{projects.map((p,i)=> (
+e("img",{src:"about.jpg"}),
 
-<motion.div
+e("div",{className:"p-4"},
 
-key={i}
+e("h3",{className:"font-semibold"},title),
+e("p",{className:"text-gray-600"},desc)
 
-whileHover={{scale:1.06}}
-
-className="bg-white rounded-xl overflow-hidden shadow"
-
->
-
-<img src="about.jpg"/>
-
-<div className="p-6">
-
-<h3 className="text-xl font-semibold">
-
-{p.title}
-
-</h3>
-
-<p className="text-gray-500">
-
-{p.desc}
-
-</p>
-
-</div>
-
-</motion.div>
-
-))}
-
-</div>
-
-</section>
+)
 
 )
 
@@ -300,47 +179,14 @@ className="bg-white rounded-xl overflow-hidden shadow"
 
 function Contact(){
 
-return(
+return e("section",
+{className:"py-20 bg-white text-center"},
 
-<section id="contact" className="py-24 bg-white text-center">
+e("h2",{className:"text-3xl font-semibold"},"Have a Project in Mind?"),
 
-<h2 className="text-4xl mb-6">
-
-Have a Project in Mind?
-
-</h2>
-
-<p className="text-gray-600 mb-6">
-
-Let's build something amazing together.
-
-</p>
-
-<button className="bg-[#C89B3C] text-white px-8 py-3 rounded">
-
-Contact Me
-
-</button>
-
-</section>
-
-)
-
-}
-
-function Footer(){
-
-return(
-
-<footer className="bg-black text-white text-center p-8">
-
-<p>
-
-© 2026 Dinesh Muthukrishnan
-
-</p>
-
-</footer>
+e("button",
+{className:"mt-6 bg-yellow-600 text-white px-8 py-3 rounded"},
+"Contact Me")
 
 )
 
@@ -348,25 +194,20 @@ return(
 
 function App(){
 
-return(
+return e("div",null,
 
-<div>
-
-<Navbar/>
-<Hero/>
-<About/>
-<Skills/>
-<Projects/>
-<Contact/>
-<Footer/>
-
-</div>
+e(Navbar),
+e(Hero),
+e(About),
+e(Skills),
+e(Projects),
+e(Contact)
 
 )
 
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>)
+ReactDOM.createRoot(document.getElementById("root")).render(e(App));
 
 </script>
 
