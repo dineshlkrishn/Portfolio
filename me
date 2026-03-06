@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dinesh Muthukrishnan | Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<script src="https://unpkg.com/framer-motion/dist/framer-motion.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+
+body{
+background:#F6F6F6;
+font-family:Inter, sans-serif;
+color:#1C1C1C;
+}
+
+.gold{
+color:#C89B3C;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const { motion } = window["framer-motion"]
+
+function Navbar(){
+
+return(
+
+<nav className="fixed w-full bg-white shadow-sm z-50">
+
+<div className="max-w-7xl mx-auto flex justify-between items-center p-6">
+
+<h1 className="text-2xl font-semibold">
+Dinesh Muthukrishnan
+</h1>
+
+<div className="space-x-8 text-gray-600">
+
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+</nav>
+
+)
+
+}
+
+function Hero(){
+
+return(
+
+<section className="pt-32 pb-24 max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+
+<motion.div
+initial={{opacity:0,y:40}}
+animate={{opacity:1,y:0}}
+transition={{duration:0.8}}
+>
+
+<h2 className="text-gray-500 mb-2">
+Software Developer
+</h2>
+
+<h1 className="text-5xl font-bold mb-6">
+
+Dinesh Muthukrishnan
+
+</h1>
+
+<p className="text-gray-600 mb-6">
+
+Building scalable web applications using MERN,
+AWS and modern cloud technologies.
+
+</p>
+
+<div className="space-x-4">
+
+<button className="bg-[#C89B3C] text-white px-6 py-3 rounded">
+
+View Projects
+
+</button>
+
+<button className="border px-6 py-3 rounded">
+
+Contact
+
+</button>
+
+</div>
+
+</motion.div>
+
+<motion.img
+
+whileHover={{scale:1.05}}
+
+src="profile.jpg"
+
+className="rounded-xl shadow-lg w-full"
+
+/>
+
+</section>
+
+)
+
+}
+
+function About(){
+
+return(
+
+<section id="about" className="py-24 max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+
+<motion.div
+
+whileInView={{opacity:1,scale:1}}
+initial={{opacity:0,scale:0.9}}
+transition={{duration:0.6}}
+
+>
+
+<h2 className="text-4xl mb-6">
+
+About Me
+
+</h2>
+
+<p className="text-gray-600 mb-6">
+
+Software Developer with 2+ years experience building scalable
+applications using the MERN stack.
+
+</p>
+
+<ul className="space-y-3">
+
+<li>✔ REST APIs</li>
+<li>✔ Cloud Deployment</li>
+<li>✔ Performance Optimization</li>
+<li>✔ UI Responsiveness</li>
+
+</ul>
+
+</motion.div>
+
+<img
+src="about.jpg"
+className="rounded-xl shadow"
+/>
+
+</section>
+
+)
+
+}
+
+function Skills(){
+
+const skills=[
+
+{title:"Frontend",desc:"React, Redux, Tailwind, MUI"},
+{title:"Backend",desc:"Node, Express, REST APIs"},
+{title:"Database",desc:"MongoDB, MySQL"}
+
+]
+
+return(
+
+<section id="skills" className="py-24 max-w-7xl mx-auto">
+
+<h2 className="text-4xl mb-12">
+
+Skills
+
+</h2>
+
+<div className="grid md:grid-cols-3 gap-8">
+
+{skills.map((s,i)=> (
+
+<motion.div
+
+key={i}
+
+whileHover={{scale:1.08}}
+
+className="bg-white p-8 rounded-xl shadow transition"
+
+>
+
+<h3 className="text-xl font-semibold mb-2">
+{s.title}
+</h3>
+
+<p className="text-gray-500">
+{s.desc}
+</p>
+
+</motion.div>
+
+))}
+
+</div>
+
+</section>
+
+)
+
+}
+
+function Projects(){
+
+const projects=[
+
+{title:"EROCRM",desc:"CRM Dashboard System"},
+{title:"DOXOR",desc:"Healthcare Support System"},
+{title:"GN1918",desc:"Order Management System"}
+
+]
+
+return(
+
+<section id="projects" className="py-24 max-w-7xl mx-auto">
+
+<h2 className="text-4xl mb-12">
+
+Projects
+
+</h2>
+
+<div className="grid md:grid-cols-3 gap-8">
+
+{projects.map((p,i)=> (
+
+<motion.div
+
+key={i}
+
+whileHover={{scale:1.06}}
+
+className="bg-white rounded-xl overflow-hidden shadow"
+
+>
+
+<img src="about.jpg"/>
+
+<div className="p-6">
+
+<h3 className="text-xl font-semibold">
+
+{p.title}
+
+</h3>
+
+<p className="text-gray-500">
+
+{p.desc}
+
+</p>
+
+</div>
+
+</motion.div>
+
+))}
+
+</div>
+
+</section>
+
+)
+
+}
+
+function Contact(){
+
+return(
+
+<section id="contact" className="py-24 bg-white text-center">
+
+<h2 className="text-4xl mb-6">
+
+Have a Project in Mind?
+
+</h2>
+
+<p className="text-gray-600 mb-6">
+
+Let's build something amazing together.
+
+</p>
+
+<button className="bg-[#C89B3C] text-white px-8 py-3 rounded">
+
+Contact Me
+
+</button>
+
+</section>
+
+)
+
+}
+
+function Footer(){
+
+return(
+
+<footer className="bg-black text-white text-center p-8">
+
+<p>
+
+© 2026 Dinesh Muthukrishnan
+
+</p>
+
+</footer>
+
+)
+
+}
+
+function App(){
+
+return(
+
+<div>
+
+<Navbar/>
+<Hero/>
+<About/>
+<Skills/>
+<Projects/>
+<Contact/>
+<Footer/>
+
+</div>
+
+)
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>)
+
+</script>
+
+</body>
+</html>
